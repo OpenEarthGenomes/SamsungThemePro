@@ -37,8 +37,16 @@ fun SamsungApp() {
             TopAppBar(
                 title = { Text("Samsung A35 Theme") },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
+            )
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                onClick = { },
+                icon = { Icon(Icons.Default.Add, contentDescription = "Add") },
+                text = { Text("Create") }
             )
         }
     ) { paddingValues ->
@@ -47,11 +55,10 @@ fun SamsungApp() {
                 .padding(paddingValues)
                 .padding(16.dp)
                 .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
-                text = "Samsung A35 Theme Pro",
+                text = "Samsung A35 - OneUI 8 Style",
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -70,15 +77,17 @@ fun SamsungApp() {
                     contentColor = MaterialTheme.colorScheme.onPrimary
                 )
             ) {
-                Icon(Icons.Default.Check, contentDescription = null)
+                Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Samsung Mint Button")
+                Text("Primary Button")
             }
             
             OutlinedButton(
                 onClick = { },
                 modifier = Modifier.fillMaxWidth()
             ) {
+                Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(modifier = Modifier.width(8.dp))
                 Text("Outlined Button")
             }
             
@@ -93,31 +102,51 @@ fun SamsungApp() {
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        "Samsung Card",
+                        "Samsung Card Example",
                         style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        "One UI 8 design with Material 3",
-                        style = MaterialTheme.typography.bodyMedium
+                        "This card uses Samsung's One UI 8 design language",
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(top = 4.dp)
                     )
+                }
+            }
+            
+            // Color Palette Preview
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    "Samsung Color Palette",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    ColorBox(MaterialTheme.colorScheme.primary, "Mint Green")
+                    ColorBox(MaterialTheme.colorScheme.secondary, "Teal")
+                }
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    ColorBox(MaterialTheme.colorScheme.tertiary, "Samsung Blue")
+                    ColorBox(MaterialTheme.colorScheme.background, "Background")
                 }
             }
             
             Spacer(modifier = Modifier.height(20.dp))
             
             Text(
-                "Theme Colors:",
-                style = MaterialTheme.typography.titleSmall
+                "Build Status: ✅ SUCCESS",
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.primary
             )
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                ColorBox(MaterialTheme.colorScheme.primary, "Primary")
-                ColorBox(MaterialTheme.colorScheme.secondary, "Secondary")
-                ColorBox(MaterialTheme.colorScheme.tertiary, "Tertiary")
-            }
         }
     }
 }
@@ -131,13 +160,14 @@ fun ColorBox(color: androidx.compose.ui.graphics.Color, label: String) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp),
+                .height(60.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = label,
                 color = MaterialTheme.colorScheme.onPrimary,
-                style = MaterialTheme.typography.labelSmall
+                style = MaterialTheme.typography.labelSmall,
+                maxLines = 1
             )
         }
     }
