@@ -29,3 +29,16 @@ A projekt fordításához **Java 17** és **Gradle 9.1** szükséges.
 ```bash
 # Debug APK fordítása helyileg
 ./gradlew assembleDebug
+
+
+Android Gradle Plugin 9.0.0 ✓
+· Kotlin 2.0.21 ✓
+· compileSdk 36 (Android 16) ✓
+· targetSdk 36 (One UI 8 kompatibilis) ✓
+· Compose BOM 2024.10.00 ✓
+· Material3 1.2.1 ✓
+· Java 17 támogatás ✓
+· Gradle 9.1 wrapper ✓
+· One UI 8 design rendszer ✓
+· Android 16 API-k ✓
+· GitHub Actions workflow ✓
