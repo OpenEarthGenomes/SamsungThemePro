@@ -1,58 +1,66 @@
-# Samsung Theme Pro - ProGuard rules
-# Android 16 / One UI 8 kompatibilis
+# Samsung Theme Pro - SIMPLE ProGuard rules
+# Először: KAPCSOLD KI A MINIFY-T! (build.gradle.kts: isMinifyEnabled = false)
 
-# Keep - Application classes
--keep public class * extends android.app.Application
--keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgentHelper
--keep public class * extends android.preference.Preference
+# CSAK EZEK A SOROK KELLENEK:
 
-# Keep - Samsung Theme classes
--keep class com.samsung.a35.themepro.** { *; }
--keep class * extends com.samsung.a35.themepro.ui.theme.** { *; }
+# 1. Tartsd meg az ÖSSZES osztályt az alkalmazásodban
+-keep class com.example.samsungtheme.** { *; }
 
-# Keep - Compose classes
--keep class androidx.compose.runtime.** { *; }
--keep class androidx.compose.ui.** { *; }
+# 2. Tartsd meg az összes Compose osztályt
+-keep class androidx.compose.** { *; }
+
+# 3. Tartsd meg az összes Kotlin coroutine osztályt
+-keep class kotlinx.coroutines.** { *; }
+
+# 4. NE távolítsd el a logokat (fejlesztés közben)
+# NE HASZNÁLD: -assumenosideeffects class android.util.Log
+
+# 5. Figyelmen kívül hagyni minden warningot (átmenetileg)
+-dontwarn **
+
+# 6. NE optimalizálj, NE zsugoríts, NE változtasd meg a neveket
+-dontobfuscate
+-dontoptimize
+-dontshrink
+
+# 7. Tartsd meg a Material3-t
 -keep class androidx.compose.material3.** { *; }
 
-# Keep - Kotlin coroutines
--keep class kotlinx.coroutines.** { *; }
--keepclassmembernames class kotlinx.coroutines.** {
-    *;
-}
+# 8. Tartsd meg a runtime-ot
+-keep class androidx.compose.runtime.** { *; }
 
-# Keep - View Binding
--keep class * extends androidx.viewbinding.ViewBinding {
-    *;
-}
+# 9. Tartsd meg a UI elemeket
+-keep class androidx.compose.ui.** { *; }
 
-# Keep - Data classes
--keepclassmembers class * {
-    @androidx.annotation.Keep *;
-}
+# 10. Tartsd meg az Activity-ket
+-keep class * extends android.app.Activity { *; }
 
-# Remove debug logging
--assumenosideeffects class android.util.Log {
-    public static boolean isLoggable(java.lang.String, int);
-    public static int v(...);
-    public static int i(...);
-    public static int w(...);
-    public static int d(...);
-    public static int e(...);
-}
+# 11. Tartsd meg a ViewModel-eket
+-keep class * extends androidx.lifecycle.ViewModel { *; }
 
-# Optimize
--optimizationpasses 5
--dontusemixedcaseclassnames
--dontskipnonpubliclibraryclasses
--dontskipnonpubliclibraryclassmembers
--dontpreverify
--verbose
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+# 12. Tartsd meg a Drawable-okat
+-keep class **.R$drawable { *; }
 
-# One UI 8 libraries
--keep class com.samsung.android.** { *; }
--dontwarn com.samsung.android.**
+# 13. Tartsd meg az animációkat
+-keep class **.R$anim { *; }
+
+# 14. Tartsd meg a stílusokat
+-keep class **.R$style { *; }
+
+# 15. Tartsd meg a színeket
+-keep class **.R$color { *; }
+
+# 16. Tartsd meg a string-eket
+-keep class **.R$string { *; }
+
+# 17. Tartsd meg a dimenziókat
+-keep class **.R$dimen { *; }
+
+# 18. Tartsd meg a layout-okat
+-keep class **.R$layout { *; }
+
+# 19. Tartsd meg a menu-kat
+-keep class **.R$menu { *; }
+
+# EGYSZERŰ MEGOLDÁS: Ha még mindig gond van, töröld ki az EGÉSZ FÁJLT
+# és hagyd ÜRESEN a proguard-rules.pro fájlt!
