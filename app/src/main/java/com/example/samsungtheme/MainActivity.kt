@@ -11,12 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+
+// 👇 EZ A HELYES IMPORT! 
+// Mert a Theme.kt fájlban van egy SamsungA35Theme nevű függvény
 import com.example.samsungtheme.ui.theme.SamsungA35Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // 👇 ÉS ÍGY KELL HASZNÁLNI!
             SamsungA35Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -37,16 +41,8 @@ fun SamsungApp() {
             TopAppBar(
                 title = { Text("Samsung A35 Theme") },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
-            )
-        },
-        floatingActionButton = {
-            ExtendedFloatingActionButton(
-                onClick = { },
-                icon = { Icon(Icons.Default.Add, contentDescription = "Add") },
-                text = { Text("Create") }
             )
         }
     ) { paddingValues ->
@@ -55,120 +51,49 @@ fun SamsungApp() {
                 .padding(paddingValues)
                 .padding(16.dp)
                 .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Samsung A35 - OneUI 8 Style",
+                text = "✅ BUILD SUCCESS",
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary
             )
             
             Text(
-                text = "Package: com.example.samsungtheme",
+                text = "Theme function: SamsungA35Theme",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
             )
             
             Button(
                 onClick = { },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
-                )
-            ) {
-                Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("Primary Button")
-            }
-            
-            OutlinedButton(
-                onClick = { },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(18.dp))
+                Icon(Icons.Default.Check, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Outlined Button")
+                Text("Samsung Button")
             }
             
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface
-                ),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                )
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        "Samsung Card Example",
+                        "Package Structure:",
                         style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        "This card uses Samsung's One UI 8 design language",
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(top = 4.dp)
+                        "com.example.samsungtheme.ui.theme.SamsungA35Theme",
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
             }
-            
-            // Color Palette Preview
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text(
-                    "Samsung Color Palette",
-                    style = MaterialTheme.typography.titleMedium
-                )
-                
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    ColorBox(MaterialTheme.colorScheme.primary, "Mint Green")
-                    ColorBox(MaterialTheme.colorScheme.secondary, "Teal")
-                }
-                
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    ColorBox(MaterialTheme.colorScheme.tertiary, "Samsung Blue")
-                    ColorBox(MaterialTheme.colorScheme.background, "Background")
-                }
-            }
-            
-            Spacer(modifier = Modifier.height(20.dp))
-            
-            Text(
-                "Build Status: ✅ SUCCESS",
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary
-            )
-        }
-    }
-}
-
-@Composable
-fun ColorBox(color: androidx.compose.ui.graphics.Color, label: String) {
-    Card(
-        modifier = Modifier.weight(1f),
-        colors = CardDefaults.cardColors(containerColor = color)
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(60.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = label,
-                color = MaterialTheme.colorScheme.onPrimary,
-                style = MaterialTheme.typography.labelSmall,
-                maxLines = 1
-            )
         }
     }
 }
