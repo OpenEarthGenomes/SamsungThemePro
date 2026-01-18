@@ -2,8 +2,30 @@
 <resources>
     <!-- Dark theme variant -->
     <style name="Theme.SamsungThemePro" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Dark theme colors -->
+        <item name="colorPrimary">@color/samsung_teal</item>
+        <item name="colorPrimaryVariant">@color/samsung_mint</item>
+        <item name="colorSecondary">@color/samsung_mint</item>
+        <item name="colorSecondaryVariant">@color/samsung_teal</item>
+        <item name="colorSurface">@color/samsung_deep_sea</item>
+        <item name="android:colorBackground">@color/samsung_deep_sea</item>
+        <item name="colorOnSurface">@color/samsung_light_text</item>
+        
+        <!-- Status bar -->
         <item name="android:forceDarkAllowed">true</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        
+        <!-- Same window properties as light theme -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        
+        <!-- Splash screen -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenBackground">@color/samsung_deep_sea</item>
     </style>
 </resources>
