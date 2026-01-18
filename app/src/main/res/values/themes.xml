@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Samsung One UI 8 Base Theme -->
-    <style name="Theme.SamsungThemePro.OneUI" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base theme -->
+    <style name="Theme.SamsungThemePro" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/samsung_mint</item>
         <item name="colorPrimaryVariant">@color/samsung_ocean_teal</item>
@@ -54,5 +54,13 @@
         <item name="colorSurfaceVariant">@color/samsung_surface_blue</item>
         <item name="colorOnSurface">@color/samsung_light_text</item>
         <item name="colorOnSurfaceVariant">@color/samsung_light_text</item>
+    </style>
+    
+    <!-- Simple fallback theme -->
+    <style name="Theme.SamsungThemePro.Simple" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="colorPrimary">@color/samsung_blue</item>
+        <item name="colorSecondary">@color/samsung_teal</item>
     </style>
 </resources>
