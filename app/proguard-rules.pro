@@ -1,21 +1,58 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Samsung Theme Pro - ProGuard rules
+# Android 16 / One UI 8 kompatibilis
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep - Application classes
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Keep - Samsung Theme classes
+-keep class com.samsung.a35.themepro.** { *; }
+-keep class * extends com.samsung.a35.themepro.ui.theme.** { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Keep - Compose classes
+-keep class androidx.compose.runtime.** { *; }
+-keep class androidx.compose.ui.** { *; }
+-keep class androidx.compose.material3.** { *; }
+
+# Keep - Kotlin coroutines
+-keep class kotlinx.coroutines.** { *; }
+-keepclassmembernames class kotlinx.coroutines.** {
+    *;
+}
+
+# Keep - View Binding
+-keep class * extends androidx.viewbinding.ViewBinding {
+    *;
+}
+
+# Keep - Data classes
+-keepclassmembers class * {
+    @androidx.annotation.Keep *;
+}
+
+# Remove debug logging
+-assumenosideeffects class android.util.Log {
+    public static boolean isLoggable(java.lang.String, int);
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}
+
+# Optimize
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+# One UI 8 libraries
+-keep class com.samsung.android.** { *; }
+-dontwarn com.samsung.android.**
