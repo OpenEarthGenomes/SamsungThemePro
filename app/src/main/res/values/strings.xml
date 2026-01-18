@@ -1,1 +1,4 @@
-
+<resources>
+    <string name="app_name">Samsung Theme Pro</string>
+    <string name="hello_world">Hello Samsung A35!</string>
+</resources>
