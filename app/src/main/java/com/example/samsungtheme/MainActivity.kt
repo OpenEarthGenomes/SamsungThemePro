@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ThemeShowcase()
+                    SamsungApp()
                 }
             }
         }
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ThemeShowcase() {
+fun SamsungApp() {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -40,13 +40,6 @@ fun ThemeShowcase() {
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
             )
-        },
-        floatingActionButton = {
-            ExtendedFloatingActionButton(
-                onClick = { },
-                icon = { Icon(Icons.Default.Add, "Add") },
-                text = { Text("Create") }
-            )
         }
     ) { paddingValues ->
         Column(
@@ -54,21 +47,32 @@ fun ThemeShowcase() {
                 .padding(paddingValues)
                 .padding(16.dp)
                 .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Samsung A35 - OneUI Style",
+                text = "Samsung A35 Theme Pro",
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary
             )
             
+            Text(
+                text = "Package: com.example.samsungtheme",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+            )
+            
             Button(
                 onClick = { },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
             ) {
-                Icon(Icons.Default.Check, null, modifier = Modifier.size(18.dp))
+                Icon(Icons.Default.Check, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Primary Button")
+                Text("Samsung Mint Button")
             }
             
             OutlinedButton(
@@ -82,47 +86,37 @@ fun ThemeShowcase() {
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface
-                )
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        "Card Example",
+                        "Samsung Card",
                         style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        "This is a card with OneUI styling",
+                        "One UI 8 design with Material 3",
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
             
-            // Color Palette Preview
-            Column(
+            Spacer(modifier = Modifier.height(20.dp))
+            
+            Text(
+                "Theme Colors:",
+                style = MaterialTheme.typography.titleSmall
+            )
+            
+            Row(
                 modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(
-                    "Color Palette",
-                    style = MaterialTheme.typography.titleMedium
-                )
-                
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    ColorBox(MaterialTheme.colorScheme.primary, "Primary")
-                    ColorBox(MaterialTheme.colorScheme.secondary, "Secondary")
-                }
-                
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    ColorBox(MaterialTheme.colorScheme.tertiary, "Tertiary")
-                    ColorBox(MaterialTheme.colorScheme.background, "Background")
-                }
+                ColorBox(MaterialTheme.colorScheme.primary, "Primary")
+                ColorBox(MaterialTheme.colorScheme.secondary, "Secondary")
+                ColorBox(MaterialTheme.colorScheme.tertiary, "Tertiary")
             }
         }
     }
@@ -137,7 +131,7 @@ fun ColorBox(color: androidx.compose.ui.graphics.Color, label: String) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp),
+                .height(50.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
