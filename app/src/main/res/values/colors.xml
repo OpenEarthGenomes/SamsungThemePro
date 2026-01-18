@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Alap Material színek -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -8,8 +9,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Samsung Colors -->
-    <color name="samsung_mint">#99FFB3</color>
-    <color name="samsung_deep_sea">#101E23</color>
-    <color name="samsung_teal">#40E0D0</color>
+    <!-- Samsung Colors - FF AZ ELEJÉN! -->
+    <color name="samsung_mint">#FF99FFB3</color>
+    <color name="samsung_deep_sea">#FF101E23</color>
+    <color name="samsung_teal">#FF40E0D0</color>
+    
+    <!-- Hiányzó színek amikre hivatkoznak -->
+    <color name="samsung_ocean_teal">#FF1AA6B7</color>
+    <color name="samsung_surface_blue">#FF152B4E</color>
+    <color name="samsung_light_text">#FFE6F1FF</color>
+    <color name="samsung_deep_blue">#FF0A1D3E</color>
+    <color name="samsung_info_blue">#FF2196F3</color>
 </resources>
