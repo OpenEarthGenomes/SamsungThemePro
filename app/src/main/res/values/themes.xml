@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.SamsungThemePro" parent="android:Theme.Material.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <!-- Samsung One UI 8 Base Theme -->
+    <style name="Theme.SamsungThemePro.OneUI" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/samsung_mint</item>
+        <item name="colorPrimaryVariant">@color/samsung_ocean_teal</item>
+        <item name="colorOnPrimary">@android:color/black</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/samsung_ocean_teal</item>
+        <item name="colorSecondaryVariant">@color/samsung_mint</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/samsung_surface_blue</item>
+        <item name="colorOnSurface">@color/samsung_light_text</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/samsung_deep_blue</item>
+        <item name="android:colorForeground">@color/samsung_light_text</item>
+        
+        <!-- Status bar -->
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- Window properties -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        
+        <!-- One UI 8 specific -->
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenBackground">@color/samsung_deep_blue</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+        
+        <!-- Material 3 -->
+        <item name="android:dynamicColorThemeOverlay">@style/ThemeOverlay.Material3.DynamicColors.DayNight</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.SamsungThemePro.OneUI</item>
+    </style>
+
+    <!-- Theme overlay for One UI 8 -->
+    <style name="ThemeOverlay.SamsungThemePro.OneUI" parent="">
+        <item name="colorPrimary">@color/samsung_mint</item>
+        <item name="colorSecondary">@color/samsung_ocean_teal</item>
+        <item name="colorTertiary">@color/samsung_info_blue</item>
+        <item name="colorSurface">@color/samsung_surface_blue</item>
+        <item name="colorSurfaceVariant">@color/samsung_surface_blue</item>
+        <item name="colorOnSurface">@color/samsung_light_text</item>
+        <item name="colorOnSurfaceVariant">@color/samsung_light_text</item>
     </style>
 </resources>
