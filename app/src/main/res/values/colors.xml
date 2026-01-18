@@ -9,15 +9,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Samsung Colors - FF AZ ELEJÉN! -->
+    <!-- Samsung Colors - JAVÍTVA: FF az elején! -->
     <color name="samsung_mint">#FF99FFB3</color>
     <color name="samsung_deep_sea">#FF101E23</color>
     <color name="samsung_teal">#FF40E0D0</color>
     
-    <!-- Hiányzó színek amikre hivatkoznak -->
-    <color name="samsung_ocean_teal">#FF1AA6B7</color>
-    <color name="samsung_surface_blue">#FF152B4E</color>
+    <!-- Hiányzó színek amikre a theme.xml hivatkozik -->
+    <color name="samsung_ocean_teal">#FF00A8C6</color>
+    <color name="samsung_surface_blue">#FF1E3A5F</color>
     <color name="samsung_light_text">#FFE6F1FF</color>
     <color name="samsung_deep_blue">#FF0A1D3E</color>
     <color name="samsung_info_blue">#FF2196F3</color>
+    
+    <!-- Extra Samsung színek -->
+    <color name="samsung_blue">#FF0066CC</color>
+    <color name="samsung_dark_blue">#FF001F3F</color>
+    <color name="samsung_light_blue">#FFE6F1FF</color>
 </resources>
