@@ -1,30 +1,9 @@
 package com.example.samsungtheme.ui.theme
-
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-
-// 👇 EZEK KELLENEK A SZÍNEKHEZ!
-val MintGreenPrimary = Color(0xFF99FFB3)
-val TealSecondary = Color(0xFF40E0D0)
-val SamsungBlue = Color(0xFF0066CC)
-val DeepSeaBackground = Color(0xFF101E23)
-val CardDarkBlue = Color(0xFF1A2B32)
-val LightCyanText = Color(0xFFE0FFFF)
-
-// 👇 VAGY HA VAN Color.kt FÁJL, AKKOR IMPORTÁLD:
-// import com.example.samsungtheme.ui.theme.MintGreenPrimary
-// import com.example.samsungtheme.ui.theme.TealSecondary
-// stb...
-
-// 👇 A Typography-t is definiáld (vagy hozd létre Type.kt fájlban)
-val Typography = Typography(
-    // ... tipográfia definíciók
-)
 
 private val DarkColorScheme = darkColorScheme(
     primary = MintGreenPrimary,
@@ -66,6 +45,7 @@ fun SamsungA35Theme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }
