@@ -2,10 +2,9 @@ name: Android Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
   build:
@@ -21,17 +20,16 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      
-    - name: Make gradlew executable
-      run: chmod +x gradlew
-      
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug --stacktrace
+    - name: Validate Gradle wrapper
+      run: |
+        chmod +x ./gradlew
+        ./gradlew --version
+        
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug
       
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: samsung-theme-debug
+        name: app-debug
         path: app/build/outputs/apk/debug/*.apk
