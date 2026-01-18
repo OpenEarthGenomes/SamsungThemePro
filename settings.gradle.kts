@@ -1,4 +1,5 @@
-lpluginManagement {
+// settings.gradle.kts
+pluginManagement {
     repositories {
         google()
         mavenCentral()
@@ -10,8 +11,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Egyéb repository-k, ha szükséges
     }
 }
 
-rootProject.name = "Samsung Theme Pro"
+rootProject.name = "SamsungThemePro" // Projekted neve
 include(":app")
