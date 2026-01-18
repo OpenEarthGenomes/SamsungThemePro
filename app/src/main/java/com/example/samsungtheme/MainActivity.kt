@@ -12,15 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-// 👇 EZ A HELYES IMPORT! 
-// Mert a Theme.kt fájlban van egy SamsungA35Theme nevű függvény
+// 👇 HELYES IMPORT - SamsungA35Theme a Theme.kt-ben van
 import com.example.samsungtheme.ui.theme.SamsungA35Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // 👇 ÉS ÍGY KELL HASZNÁLNI!
+            // 👇 HELYES HASZNÁLAT
             SamsungA35Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -41,8 +40,16 @@ fun SamsungApp() {
             TopAppBar(
                 title = { Text("Samsung A35 Theme") },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
+            )
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                onClick = { },
+                icon = { Icon(Icons.Default.Add, contentDescription = "Add") },
+                text = { Text("Create Theme") }
             )
         }
     ) { paddingValues ->
@@ -55,42 +62,61 @@ fun SamsungApp() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "✅ BUILD SUCCESS",
+                text = "✅ BUILD SUCCESSFUL",
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.primary
             )
             
             Text(
-                text = "Theme function: SamsungA35Theme",
+                text = "Theme: SamsungA35Theme",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
             )
             
             Button(
                 onClick = { },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
             ) {
                 Icon(Icons.Default.Check, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Samsung Button")
+                Text("Samsung Mint Button")
+            }
+            
+            OutlinedButton(
+                onClick = { },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(Icons.Default.Edit, contentDescription = null)
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Outlined Button")
             }
             
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface
-                )
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        "Package Structure:",
+                        "File Structure:",
                         style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        "com.example.samsungtheme.ui.theme.SamsungA35Theme",
+                        "com.example.samsungtheme.ui.theme",
                         style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(
+                        "✓ Color.kt ✓ Theme.kt ✓ Type.kt ✓ Shape.kt",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary
                     )
                 }
             }
